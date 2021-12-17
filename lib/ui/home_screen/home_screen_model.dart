@@ -9,18 +9,12 @@ class HomeScreenModel extends ElementaryModel {
 
   HomeScreenModel(this._productModel);
 
-  @override
-  void init() {
-    super.init();
+  void onChangeProduct(Product newProduct) {
+    _productModel.product = newProduct;
     updateProduct();
   }
 
   void updateProduct() {
     product.value = _productModel.product;
-  }
-
-  void onChangeProduct(Product newProduct) {
-    _productModel.product = newProduct;
-    updateProduct();
   }
 }
