@@ -24,6 +24,7 @@ class HomeScreenWM extends WidgetModel<HomeScreen, HomeScreenModel> {
     super.initWidgetModel();
     stringController.addListener(onInputsChange);
     intController.addListener(onInputsChange);
+    _loadProduct();
   }
 
   void onInputsChange() {
@@ -42,6 +43,7 @@ class HomeScreenWM extends WidgetModel<HomeScreen, HomeScreenModel> {
   }
 
   Future<void> showNewDialog() async {
+    _loadProduct();
     var newProduct = await showDialog<Product?>(
       context: context,
       builder: (_) {
@@ -52,5 +54,10 @@ class HomeScreenWM extends WidgetModel<HomeScreen, HomeScreenModel> {
       },
     );
     if(newProduct != null) model.onChangeProduct(newProduct);
+  }
+
+  void _loadProduct() {
+    stringController.text = product.value.string;
+    intController.text = '${product.value.integer}';
   }
 }

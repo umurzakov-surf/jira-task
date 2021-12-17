@@ -5,7 +5,7 @@ import 'package:jira_task/product_model.dart';
 
 class HomeScreenModel extends ElementaryModel {
   final ProductModel _productModel;
-  late ValueNotifier<Product> product = ValueNotifier(_productModel.product);
+  final ValueNotifier<Product> product = ValueNotifier(Product(string: '', integer: 0));
 
   HomeScreenModel(this._productModel);
 
